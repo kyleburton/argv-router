@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+LIBS="github.com/kyleburton/bake-recipies/vim/vim-go.sh"
+for lib in $LIBS; do
+  bake_require $lib
+done
+
+bake_task update_libs "Update local bake libraries"
+function update_libs () {
+  for lib in $LIBS; do
+    bake_package_install $lib
+  done
+}
+
+bake_task install "Install bake libraries"
+function install () {
+  vim_pathogen_install
+  vim_go_install
+}
+
