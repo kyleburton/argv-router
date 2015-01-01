@@ -69,6 +69,14 @@ func TestSplatRouteMatching(t *testing.T) {
 	if !matched {
 		t.Errorf("Error: %q should have been a (splat) match for route %q", args, route)
 	}
+
+	// splat can match zero parts?
+	args = []string{"ls"}
+	route = &Route{Pattern: []string{"ls", "*"}}
+	_, matched = RouteMatches(route, args)
+	if !matched {
+		t.Errorf("Error: %q should have been a (splat) match for route %q", args, route)
+	}
 }
 
 func TestRoutingTable(t *testing.T) {

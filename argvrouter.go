@@ -54,7 +54,10 @@ func RouteMatches(route *Route, args []string) (*Route, bool) {
 	}
 
 	for idx, part := range route.Pattern {
-		arg := args[idx]
+		var arg string
+		if len(args) > idx {
+			arg = args[idx]
+		}
 		res.Args = args[idx:]
 
 		if "*" == part {
