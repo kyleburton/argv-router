@@ -83,8 +83,6 @@ func TestRoutingTable(t *testing.T) {
 	}
 }
 
-// TODO: FindMatchingRoute(args []string) *Route
-
 func TestFindMatchingRoute(t *testing.T) {
 	ClearRoutingTable()
 	AddRoute(&Route{Pattern: []string{"ls"}})

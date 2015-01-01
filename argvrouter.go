@@ -36,7 +36,6 @@ func IsPatternParam(s string) bool {
 
 func (self *Route) PatternEndsWithSplat() bool {
 	return "*" == self.Pattern[len(self.Pattern)-1]
-
 }
 
 func RouteMatches(route *Route, args []string) (*Route, bool) {
